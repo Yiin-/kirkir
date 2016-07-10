@@ -1,0 +1,24 @@
+label {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+	color: $main-color;
+}
+
+input {
+	padding: 3px;
+	border: 1px solid $main-color;
+
+	border-radius: $border-radius-input;
+
+	background-color: $background-color;
+	
+	&:hover {
+		border-color: $text-color;
+	}
+
+	&:focus, &:active {
+		border-color: $dark-color;
+		outline: none;
+	}
+}

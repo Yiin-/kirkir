@@ -1,16 +1,35 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+/**
+ * Authentication
+ */
+$this->get('prisijungimas', [
+    'as' => 'auth.view.login',
+    'uses' => 'Auth\AuthController@loginPage',
+]);
+$this->post('prisijungimas', [
+    'as' => 'auth.login',
+    'uses' => 'Auth\AuthController@login',
+]);
+$this->get('patvirtinti-informacija', [
+    'as' => 'auth.view.confirm-info',
+    'uses' => 'Auth\AuthController@confirmInfoPage',
+]);
+$this->post('patvirtinti-informacija', [
+    'as' => 'auth.confirm-info',
+    'uses' => 'Auth\AuthController@confirmInfo',
+]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+foreach (['google'] as $service) {
+    $this->get("auth/$service", ['as' => "auth.$service", 'uses' => "Auth\AuthController@${service}"]);
+    $this->get("auth/$service/callback", ['as' => "auth.$service.callback", 'uses' => "Auth\AuthController@${service}Callback"]);
+}
+
+/**
+ * Index
+ */
+
+$this->get('/', [
+    'as' => 'index',
+    'uses' => 'IndexController@index',
+]);

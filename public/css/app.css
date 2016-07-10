@@ -1,0 +1,173 @@
+/**
+ * Heading font
+ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext);
+@font-face {
+  font-family: 'Indie Flower';
+  src: url("/fonts/indieflower-webfont.ttf") format("truetype"), url("/fonts/indieflower-webfont.woff2") format("woff2"), url("/fonts/indieflower-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+/**
+ * Default font for basic text
+ */
+/**
+ * Colors
+ */
+/**
+ * Font sizes
+ */
+label {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: #AA7439; }
+
+input {
+  padding: 3px;
+  border: 1px solid #AA7439;
+  border-radius: 3px;
+  background-color: #FFFAF5; }
+  input:hover {
+    border-color: #4B2700; }
+  input:focus, input:active {
+    border-color: #4B2700;
+    outline: none; }
+
+.navbar {
+  padding: 6px;
+  background-color: #7b4102; }
+
+.navbar-links {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 25px;
+  text-align: right; }
+
+.navbar-link {
+  display: inline-block; }
+  .navbar-link > a {
+    text-decoration: none;
+    color: white; }
+
+.heading {
+  font-size: 3em;
+  text-align: center; }
+
+/**
+ * Form
+ */
+.form {
+  margin: 10px auto; }
+
+.form--big {
+  width: 100%;
+  max-width: 600px; }
+
+.form--medium {
+  width: 100%;
+  max-width: 400px; }
+
+.form--small {
+  width: 100%;
+  max-width: 300px; }
+
+/**
+ * Form block
+ */
+.form-block {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  .form-block > label {
+    text-align: left;
+    display: block;
+    margin-bottom: 3px; }
+
+.form-block--centered {
+  text-align: center;
+  margin: 15px auto; }
+
+/**
+ * Form field
+ */
+.form-field {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; }
+
+/**
+ * Stacked field
+ */
+.form-field--stacked-left {
+  display: inline;
+  width: 70%;
+  border-radius: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+.form-field--stacked-right {
+  display: inline;
+  width: 70%;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+
+/**
+ * Form button
+ */
+.form-button {
+  background-color: #AA7439;
+  color: #FFFAF5;
+  font-weight: bold;
+  border: 1px solid #AA7439; }
+
+.form-button--big {
+  padding: 20px; }
+
+.form-button--medium {
+  padding: 10px; }
+
+.form-button--small {
+  padding: 5px; }
+
+.form-button--wide {
+  width: 100%; }
+
+/**
+ * Stacked button
+ */
+.form-button--stacked-left {
+  display: inline-block;
+  margin-left: -5px;
+  width: 30%;
+  border-radius: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+.form-button--stacked-right {
+  display: inline-block;
+  margin-right: -5px;
+  width: 30%;
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+
+body {
+  background-color: #FFFAF5;
+  color: #4B2700;
+  font-family: "Open Sans"; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Indie Flower"; }
+  h1.sub-heading, h2.sub-heading, h3.sub-heading, h4.sub-heading, h5.sub-heading, h6.sub-heading {
+    color: #AA7439; }
+
+.content-block {
+  width: 1000px;
+  margin: 0 auto; }
+
+.content-block--center {
+  text-align: center; }
+
+/*# sourceMappingURL=app.css.map */

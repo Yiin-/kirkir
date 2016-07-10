@@ -1,0 +1,119 @@
+/**
+ * Form
+ */
+.form {
+	@include center-block(10px);
+}
+
+.form--big {
+	width: 100%;
+	max-width: 600px;
+}
+
+.form--medium {
+	width: 100%;
+	max-width: 400px;
+}
+
+.form--small {
+	width: 100%;
+	max-width: 300px;
+}
+
+/**
+ * Form block
+ */
+.form-block {
+	margin-top: $basic-spacing;
+	margin-bottom: $basic-spacing;
+
+	> label {
+		text-align: left;
+		display: block;
+		margin-bottom: 3px;
+	}
+}
+
+.form-block--centered {
+	text-align: center;
+	@include center-block($basic-spacing);
+}
+
+/**
+ * Form field
+ */
+.form-field {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+/**
+ * Stacked field
+ */
+.form-field--stacked-left {
+	display: inline;
+	width: 70%;
+	border-radius: 0;
+	border-top-right-radius: $border-radius-input;
+	border-bottom-right-radius: $border-radius-input;
+}
+.form-field--stacked-right {
+	display: inline;
+	width: 70%;
+	border-radius: 0;
+	border-top-left-radius: $border-radius-input;
+	border-bottom-left-radius: $border-radius-input;
+}
+
+/**
+ * Form button
+ */
+
+.form-button {
+	background-color: $main-color;
+	color: $background-color;
+	font-weight: bold;
+
+	border: 1px solid $main-color;
+}
+
+.form-button--big {
+	padding: 20px;
+}
+
+.form-button--medium {
+	padding: 10px;
+}
+
+.form-button--small {
+	padding: 5px;
+}
+
+.form-button--wide {
+	width: 100%;
+}
+
+/**
+ * Stacked button
+ */
+
+.form-button--stacked-left {
+	display: inline-block;
+	margin-left: -5px;
+	width: 30%;
+	
+	border-radius: 0;
+	border-top-right-radius: $border-radius-input;
+	border-bottom-right-radius: $border-radius-input;
+}
+
+.form-button--stacked-right {
+	display: inline-block;
+	margin-right: -5px;
+	width: 30%;
+	
+	border-radius: 0;
+	border-top-left-radius: $border-radius-input;
+	border-bottom-left-radius: $border-radius-input;
+}

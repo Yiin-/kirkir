@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Socialite;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -19,7 +20,7 @@ class AuthController extends Controller
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
-    */
+     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -68,5 +69,36 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function google()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function googleCallback()
+    {
+        if (request()->has('error')) {
+            return redirect()->route('auth.login');
+        }
+
+        $googleUser = Socialite::driver('google')->user();
+
+        if ($user = User::byEmail($googleUser->email)->first()) {
+            Auth::login($user);
+        } else {
+            session()->put('currentUserData', [
+                'name' => $googleUser->name,
+                'email' => $googleUser->email,
+            ]);
+            return redirect()->route('auth.confirm-info');
+        }
+
+        return redirect()->route('index');
+    }
+
+    public function confirmInfoPage()
+    {
+        return view('pages.confirm-info')->with(['currentData' => session()->get('currentUserData')]);
     }
 }

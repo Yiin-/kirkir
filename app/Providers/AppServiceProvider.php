@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::directive('auth', function ($expression) {
+            return "<?php if(Auth::check()) : ?>";
+        });
+        Blade::directive('endauth', function ($expression) {
+            return "<?php endif; ?>";
+        });
+        Blade::directive('guest', function ($expression) {
+            return "<?php if(!Auth::check()) : ?>";
+        });
+        Blade::directive('endguest', function ($expression) {
+            return "<?php endif; ?>";
+        });
     }
 
     /**
